@@ -51,18 +51,18 @@ class RecordViewer(tk.Tk):
         self.__input_button.pack(pady=10)
 
     def __load_records(self):
-        # Clear existing records
+
         for item in self.__tree.get_children():
             self.__tree.delete(item)
 
-        # Load all records
+
         records = self.__api.fetch_records()
         if records:
-            # Insert all records into the tree
+
             for record in records:
                 self.__tree.insert("", "end", values=(record['id'], record['nombre'], record['apellido'], record['ciudad'], record['calle']))
 
-            # Load a random record
+
             random_record = self.__api.fetch_random_record()
             if random_record:
                 messagebox.showinfo("Registro Aleatorio", f"Registro Aleatorio:\nID: {random_record['id']}\nNombre: {random_record['nombre']}\nApellido: {random_record['apellido']}\nCiudad: {random_record['ciudad']}\nCalle: {random_record['calle']}")
