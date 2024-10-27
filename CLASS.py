@@ -8,22 +8,21 @@ class API:
         self.__base_url = base_url
 
     def fetch_records(self):
-        response = requests.get(self.__base_url)
-        if response.status_code == 200:
-            return response.json()
-        else:
+        try:
+            response = requests.get(self.__base_url)
+            response.raise_for_status()  # Check for HTTP request errors
+            return response.json() if isinstance(response.json(), list) else []
+        except (requests.RequestException, ValueError):
             return []
 
     def fetch_random_record(self):
         records = self.fetch_records()
-        if records:
-            return random.choice(records)
-        return None
+        return random.choice(records) if records else None
 
     def fetch_record_by_id(self, record_id):
         records = self.fetch_records()
         for record in records:
-            if str(record['id']) == str(record_id):
+            if str(record.get('generacion')) == str(record_id):
                 return record
         return None
 
@@ -39,42 +38,55 @@ class RecordViewer(tk.Tk):
         self.geometry("1000x500")
         self.resizable(False, False)
 
-        self.__tree = ttk.Treeview(self, columns=("ID", "Nombre", "Apellido", "Ciudad", "Calle"), show="headings")
-        self.__tree.heading("ID", text="ID")
-        self.__tree.heading("Nombre", text="Nombre")
-        self.__tree.heading("Apellido", text="Apellido")
-        self.__tree.heading("Ciudad", text="Ciudad")
-        self.__tree.heading("Calle", text="Calle")
+        # Ensure the column names match your data keys
+        self.__tree = ttk.Treeview(self, columns=("generacion", "spartan", "apellido", "ciudad", "colonia"), show="headings")
+        self.__tree.heading("generacion", text="Generación")
+        self.__tree.heading("spartan", text="Spartan")
+        self.__tree.heading("apellido", text="Apellido")
+        self.__tree.heading("ciudad", text="Ciudad")
+        self.__tree.heading("colonia", text="Colonia")
         self.__tree.pack(expand=True, fill='both')
 
-        self.__input_button = tk.Button(self, text="Buscar Registro por ID", command=self.__input_record_id)
+        self.__input_button = tk.Button(self, text="Buscar Registro por Generación", command=self.__input_record_id)
         self.__input_button.pack(pady=10)
 
     def __load_records(self):
-
+        # Clear existing records from the TreeView
         for item in self.__tree.get_children():
             self.__tree.delete(item)
 
-
+        # Fetch records from the API
         records = self.__api.fetch_records()
         if records:
-
             for record in records:
-                self.__tree.insert("", "end", values=(record['id'], record['nombre'], record['apellido'], record['ciudad'], record['calle']))
+                # Use .get() to safely access each key, with 'N/A' as the default if the key is missing
+                generacion = record.get('generacion', 'N/A')
+                spartan = record.get('spartan', 'N/A')
+                apellido = record.get('apellido', 'N/A')
+                ciudad = record.get('ciudad', 'N/A')
+                colonia = record.get('colonia', 'N/A')
 
+                # Insert the record into the TreeView
+                self.__tree.insert("", "end", values=(generacion, spartan, apellido, ciudad, colonia))
 
+            # Display a random record if available
             random_record = self.__api.fetch_random_record()
             if random_record:
-                messagebox.showinfo("Registro Aleatorio", f"Registro Aleatorio:\nID: {random_record['id']}\nNombre: {random_record['nombre']}\nApellido: {random_record['apellido']}\nCiudad: {random_record['ciudad']}\nCalle: {random_record['calle']}")
+                messagebox.showinfo(
+                    "Registro Aleatorio",
+                    f"Registro Aleatorio:\nGeneración: {random_record.get('generacion', 'N/A')}\n"
+                    f"Spartan: {random_record.get('spartan', 'N/A')}\nApellido: {random_record.get('apellido', 'N/A')}\n"
+                    f"Ciudad: {random_record.get('ciudad', 'N/A')}\nColonia: {random_record.get('colonia', 'N/A')}"
+                )
         else:
             messagebox.showwarning("Advertencia", "No se pudieron cargar los registros.")
 
     def __input_record_id(self):
         input_window = tk.Toplevel(self)
-        input_window.title("Buscar Registro por ID")
+        input_window.title("Buscar Generación")
         input_window.geometry("300x150")
 
-        tk.Label(input_window, text="Ingrese el ID del registro:").pack(pady=10)
+        tk.Label(input_window, text="Ingresa la generación:").pack(pady=10)
         entry = tk.Entry(input_window)
         entry.pack(pady=5)
 
@@ -88,7 +100,7 @@ class RecordViewer(tk.Tk):
             else:
                 messagebox.showwarning("Advertencia", "Registro no encontrado.")
         except ValueError:
-            messagebox.showwarning("Advertencia", "Por favor, ingrese un ID válido.")
+            messagebox.showwarning("Advertencia", "Por favor, ingrese la generación.")
         input_window.destroy()
 
     def __show_record_details(self, record):
@@ -96,9 +108,8 @@ class RecordViewer(tk.Tk):
         detail_window.title("Detalles del Registro de Usuario")
         detail_window.geometry("600x400")
 
-        tk.Label(detail_window, text="ID: " + str(record['id'])).pack(pady=20)
-        tk.Label(detail_window, text="Nombre: " + record['nombre']).pack(pady=10)
-        tk.Label(detail_window, text="Apellido: " + record['apellido']).pack(pady=10)
-        tk.Label(detail_window, text="Ciudad: " + record['ciudad']).pack(pady=10)
-        tk.Label(detail_window, text="Calle: " + record['calle']).pack(pady=10)
-
+        tk.Label(detail_window, text="Generación: " + str(record.get('generacion', 'N/A'))).pack(pady=20)
+        tk.Label(detail_window, text="Spartan: " + record.get('spartan', 'N/A')).pack(pady=10)
+        tk.Label(detail_window, text="Apellido: " + record.get('apellido', 'N/A')).pack(pady=10)
+        tk.Label(detail_window, text="Ciudad: " + record.get('ciudad', 'N/A')).pack(pady=10)
+        tk.Label(detail_window, text="Colonia: " + record.get('colonia', 'N/A')).pack(pady=10)

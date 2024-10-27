@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3345a9d1-309a-438c-92c5-6df89a924d30" name="Changes" comment="oooo oli">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WIIN.py" beforeDir="false" afterPath="$PROJECT_DIR$/WIIN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CLASS.py" beforeDir="false" afterPath="$PROJECT_DIR$/CLASS.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,21 +23,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "MasterfordTM"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MasterfordTM&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/MasterfordTM/examen-tema-2-.git",
-    "accountId": "589ebcf2-b9a3-4fb1-afed-8bfdeb7d4ddd"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MasterfordTM/examen-tema-2-.git&quot;,
+    &quot;accountId&quot;: &quot;589ebcf2-b9a3-4fb1-afed-8bfdeb7d4ddd&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2nzCehpy1FvTQ5FaEoq37uzljHz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -46,8 +46,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.CLASS.executor": "Run",
     "Python.Classprincipal.executor": "Run",
     "Python.WIIN.executor": "Run",
+    "Python.wii.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
@@ -74,7 +76,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729966615326</updated>
-      <workItem from="1729966619899" duration="12796000" />
+      <workItem from="1729966619899" duration="13268000" />
+      <workItem from="1729984927628" duration="25000" />
+      <workItem from="1730056666690" duration="1709000" />
     </task>
     <task id="LOCAL-00001" summary="oooo oli">
       <option name="closed" value="true" />
@@ -84,7 +88,23 @@
       <option name="project" value="LOCAL" />
       <updated>1729977916160</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="oooo oli">
+      <option name="closed" value="true" />
+      <created>1729983409463</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729983409463</updated>
+    </task>
+    <task id="LOCAL-00003" summary="oooo oli">
+      <option name="closed" value="true" />
+      <created>1729983505177</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729983505177</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,7 +126,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="oooo oli" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/examen_tema_2$WIIN.coverage" NAME="WIIN Coverage Results" MODIFIED="1729983176268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/examen_tema_2$WIIN.coverage" NAME="WIIN Coverage Results" MODIFIED="1729983342001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/examen_tema_2$wii.coverage" NAME="wii Coverage Results" MODIFIED="1730058388570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/examen_tema_2$CLASS.coverage" NAME="CLASS Coverage Results" MODIFIED="1730058006969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/examen_tema_2$Classprincipal.coverage" NAME="Classprincipal Coverage Results" MODIFIED="1729981803869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
