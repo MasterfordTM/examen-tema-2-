@@ -38,12 +38,13 @@ class RecordViewer(tk.Tk):
         self.geometry("1000x500")
         self.resizable(False, False)
 
-        self.__tree = ttk.Treeview(self, columns=("generacion", "spartan", "apellido", "ciudad", "planteldeentrenamiento"), show="headings")
+        self.__tree = ttk.Treeview(self, columns=("generacion", "spartan", "apellido", "ciudad", "planteldeentrenamiento", "estadodemision"), show="headings")
         self.__tree.heading("generacion", text="Generación")
         self.__tree.heading("spartan", text="Spartan")
         self.__tree.heading("apellido", text="Apellido")
         self.__tree.heading("ciudad", text="Ciudad")
         self.__tree.heading("planteldeentrenamiento", text="Plantel de Entrenamiento")
+        self.__tree.heading("estadodemision", text="Estado")
         self.__tree.pack(expand=True, fill='both')
 
         self.__input_button = tk.Button(self, text="Buscar Registro por Generación", command=self.__input_record_id)
@@ -61,9 +62,9 @@ class RecordViewer(tk.Tk):
                 apellido = record.get('apellido', 'N/A')
                 ciudad = record.get('ciudad', 'N/A')
                 planteldeentrenamiento = record.get('planteldeentrenamiento', 'N/A')
+                estadodemision = record.get('estadodemision', 'N/A')
 
-                self.__tree.insert("", "end", values=(generacion, spartan, apellido, ciudad, planteldeentrenamiento))
-
+                self.__tree.insert("", "end", values=(generacion, spartan, apellido, ciudad, planteldeentrenamiento, estadodemision))
 
             random_record = self.__api.fetch_random_record()
             if random_record:
@@ -71,7 +72,8 @@ class RecordViewer(tk.Tk):
                     "Registro Aleatorio",
                     f"Registro Aleatorio:\nGeneración: {random_record.get('generacion', 'N/A')}\n"
                     f"Spartan: {random_record.get('spartan', 'N/A')}\nApellido: {random_record.get('apellido', 'N/A')}\n"
-                    f"Ciudad: {random_record.get('ciudad', 'N/A')}\nPlantel de Entrenamiento: {random_record.get('planteldeentrenamiento', 'N/A')}"
+                    f"Ciudad: {random_record.get('ciudad', 'N/A')}\nPlantel de Entrenamiento: {random_record.get('planteldeentrenamiento', 'N/A')}\n"
+                    f"Estado: {random_record.get('estadodemision', 'N/A')}"
                 )
         else:
             messagebox.showwarning("Advertencia", "No se pudieron cargar los registros.")
@@ -107,4 +109,5 @@ class RecordViewer(tk.Tk):
         tk.Label(detail_window, text="Spartan: " + record.get('spartan', 'N/A')).pack(pady=10)
         tk.Label(detail_window, text="Apellido: " + record.get('apellido', 'N/A')).pack(pady=10)
         tk.Label(detail_window, text="Ciudad: " + record.get('ciudad', 'N/A')).pack(pady=10)
+        tk.Label(detail_window, text="Estado: " + record.get('estadodemision', 'N/A')).pack(pady=10)
         tk.Label(detail_window, text="Plantel de Entrenamiento: " + record.get('planteldeentrenamiento', 'N/A')).pack(pady=10)
