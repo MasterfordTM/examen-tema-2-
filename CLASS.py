@@ -59,14 +59,14 @@ class RecordViewer(tk.Tk):
         records = self.__api.fetch_records()
         if records:
             for record in records:
-                # Use .get() to safely access each key, with 'N/A' as the default if the key is missing
+
                 generacion = record.get('generacion', 'N/A')
                 spartan = record.get('spartan', 'N/A')
                 apellido = record.get('apellido', 'N/A')
                 ciudad = record.get('ciudad', 'N/A')
                 colonia = record.get('colonia', 'N/A')
 
-                # Insert the record into the TreeView
+
                 self.__tree.insert("", "end", values=(generacion, spartan, apellido, ciudad, colonia))
 
             # Display a random record if available
