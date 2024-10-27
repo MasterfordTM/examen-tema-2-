@@ -10,7 +10,7 @@ class API:
     def fetch_records(self):
         try:
             response = requests.get(self.__base_url)
-            response.raise_for_status()  # Check for HTTP request errors
+            response.raise_for_status()
             return response.json() if isinstance(response.json(), list) else []
         except (requests.RequestException, ValueError):
             return []
