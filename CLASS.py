@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import messagebox
+from tabla import RecordTable
 import requests
 import random
 
@@ -31,52 +32,31 @@ class RecordViewer(tk.Tk):
         super().__init__()
         self.__api = api
         self.__init_ui()
-        self.__load_records()
 
     def __init_ui(self):
         self.title("Registro de Usuarios")
         self.geometry("1000x500")
         self.resizable(False, False)
 
-        self.__tree = ttk.Treeview(self, columns=("generacion", "spartan", "apellido", "ciudad", "planteldeentrenamiento", "estadodemision"), show="headings")
-        self.__tree.heading("generacion", text="Generación")
-        self.__tree.heading("spartan", text="Spartan")
-        self.__tree.heading("apellido", text="Apellido")
-        self.__tree.heading("ciudad", text="Ciudad")
-        self.__tree.heading("planteldeentrenamiento", text="Plantel de Entrenamiento")
-        self.__tree.heading("estadodemision", text="Estado")
-        self.__tree.pack(expand=True, fill='both')
+        self.__table = RecordTable(self)
+        self.__load_records()
 
         self.__input_button = tk.Button(self, text="Buscar Registro por Generación", command=self.__input_record_id)
         self.__input_button.pack(pady=10)
 
     def __load_records(self):
-        for item in self.__tree.get_children():
-            self.__tree.delete(item)
-
         records = self.__api.fetch_records()
-        if records:
-            for record in records:
-                generacion = record.get('generacion', 'N/A')
-                spartan = record.get('spartan', 'N/A')
-                apellido = record.get('apellido', 'N/A')
-                ciudad = record.get('ciudad', 'N/A')
-                planteldeentrenamiento = record.get('planteldeentrenamiento', 'N/A')
-                estadodemision = record.get('estadodemision', 'N/A')
+        self.__table.load_records(records)
 
-                self.__tree.insert("", "end", values=(generacion, spartan, apellido, ciudad, planteldeentrenamiento, estadodemision))
-
-            random_record = self.__api.fetch_random_record()
-            if random_record:
-                messagebox.showinfo(
-                    "Registro Aleatorio",
-                    f"Registro Aleatorio:\nGeneración: {random_record.get('generacion', 'N/A')}\n"
-                    f"Spartan: {random_record.get('spartan', 'N/A')}\nApellido: {random_record.get('apellido', 'N/A')}\n"
-                    f"Ciudad: {random_record.get('ciudad', 'N/A')}\nPlantel de Entrenamiento: {random_record.get('planteldeentrenamiento', 'N/A')}\n"
-                    f"Estado: {random_record.get('estadodemision', 'N/A')}"
-                )
-        else:
-            messagebox.showwarning("Advertencia", "No se pudieron cargar los registros.")
+        random_record = self.__api.fetch_random_record()
+        if random_record:
+            messagebox.showinfo(
+                "Registro Aleatorio",
+                f"Registro Aleatorio:\nGeneración: {random_record.get('generacion', 'N/A')}\n"
+                f"Spartan: {random_record.get('spartan', 'N/A')}\nApellido: {random_record.get('apellido', 'N/A')}\n"
+                f"Ciudad: {random_record.get('ciudad', 'N/A')}\nPlantel de Entrenamiento: {random_record.get('planteldeentrenamiento', 'N/A')}\n"
+                f"Estado: {random_record.get('estadodemision', 'N/A')}"
+            )
 
     def __input_record_id(self):
         input_window = tk.Toplevel(self)
