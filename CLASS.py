@@ -26,15 +26,7 @@ class RecordViewer(tk.Tk):
         records = self.__api.fetch_records()
         self.__table.load_records(records)
 
-        random_record = self.__api.fetch_random_record()
-        if random_record:
-            messagebox.showinfo(
-                "Registro Aleatorio",
-                f"Registro Aleatorio:\nGeneración: {random_record.get('generacion', 'N/A')}\n"
-                f"Spartan: {random_record.get('spartan', 'N/A')}\nApellido: {random_record.get('apellido', 'N/A')}\n"
-                f"Ciudad: {random_record.get('ciudad', 'N/A')}\nPlantel de Entrenamiento: {random_record.get('planteldeentrenamiento', 'N/A')}\n"
-                f"Estado: {random_record.get('estadodemision', 'N/A')}"
-            )
+
 
     def __input_record_id(self):
         input_window = tk.Toplevel(self)
