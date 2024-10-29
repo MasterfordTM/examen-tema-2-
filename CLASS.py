@@ -12,7 +12,7 @@ class RecordViewer(tk.Tk):
         self.__init_ui()
 
     def __init_ui(self):
-        self.title("Registro de Usuarios")
+        self.title("UNSC")
         self.geometry("1000x500")
         self.resizable(False, False)
 
