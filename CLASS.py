@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import messagebox
 from tabla import RecordTable
 from ull import API
+from tkinter import ttk
+
 
 
 
@@ -13,14 +15,27 @@ class RecordViewer(tk.Tk):
 
     def __init_ui(self):
         self.title("UNSC")
-        self.geometry("1000x500")
+        self.geometry("1200x800")
         self.resizable(False, False)
 
         self.__table = RecordTable(self)
         self.__load_records()
 
+        self.__actualizacion_tabla = tk.Button(self, text="Actualizar Tabla", command=self.nuevos_registros)
+        self.__actualizacion_tabla.pack(pady=10)
+
+
         self.__input_button = tk.Button(self, text="Buscar Registro por Generación", command=self.__input_record_id)
         self.__input_button.pack(pady=10)
+
+    def registros_iniciales(self):
+        records = self.__api.fetch_records()
+        self.__table.load_records(records)
+
+    def nuevos_registros(self):
+        self.__load_records()
+        self.__table.load_records()
+        messagebox.showinfo("Actualización", "La tabla ha sido actualizada exitosamente.")
 
     def __load_records(self):
         records = self.__api.fetch_records()
@@ -53,11 +68,10 @@ class RecordViewer(tk.Tk):
     def __show_record_details(self, record):
         detail_window = tk.Toplevel(self)
         detail_window.title("Detalles del Registro de Usuario")
-        detail_window.geometry("600x400")
+        detail_window.geometry("1200x500")
+        detail_window.resizable(False, False)
+        detail_table = RecordTable(detail_window)
+        detail_table.pack(expand=True, fill='both')
+        detail_table.load_records([record])
 
-        tk.Label(detail_window, text="Generación: " + str(record.get('generacion', 'N/A'))).pack(pady=20)
-        tk.Label(detail_window, text="Spartan: " + record.get('spartan', 'N/A')).pack(pady=10)
-        tk.Label(detail_window, text="Apellido: " + record.get('apellido', 'N/A')).pack(pady=10)
-        tk.Label(detail_window, text="Ciudad: " + record.get('ciudad', 'N/A')).pack(pady=10)
-        tk.Label(detail_window, text="Estado: " + record.get('estadodemision', 'N/A')).pack(pady=10)
-        tk.Label(detail_window, text="Plantel de Entrenamiento: " + record.get('planteldeentrenamiento', 'N/A')).pack(pady=10)
+

@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3345a9d1-309a-438c-92c5-6df89a924d30" name="Changes" comment="oooo oli" />
+    <list default="true" id="3345a9d1-309a-438c-92c5-6df89a924d30" name="Changes" comment="oooo oli">
+      <change afterPath="$PROJECT_DIR$/busq.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CLASS.py" beforeDir="false" afterPath="$PROJECT_DIR$/CLASS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabla.py" beforeDir="false" afterPath="$PROJECT_DIR$/tabla.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +54,7 @@
     &quot;Python.wii.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/csarr/OneDrive/Escritorio/codigospy/examen2/examen tema 2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -57,6 +63,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\csarr\OneDrive\Escritorio\codigospy\examen2\examen tema 2" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -79,7 +90,10 @@
       <workItem from="1730061776307" duration="14000" />
       <workItem from="1730160954444" duration="81000" />
       <workItem from="1730172630787" duration="2000" />
-      <workItem from="1730229491572" duration="2504000" />
+      <workItem from="1730229491572" duration="4767000" />
+      <workItem from="1730242085554" duration="3690000" />
+      <workItem from="1730254644461" duration="41000" />
+      <workItem from="1730332462893" duration="2723000" />
     </task>
     <task id="LOCAL-00001" summary="oooo oli">
       <option name="closed" value="true" />
@@ -185,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730231812130</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="oooo oli">
+      <option name="closed" value="true" />
+      <created>1730232307612</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1730232307612</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,8 +230,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/examen_tema_2$WIIN.coverage" NAME="WIIN Coverage Results" MODIFIED="1729983342001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/examen_tema_2$wii.coverage" NAME="wii Coverage Results" MODIFIED="1730232026872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/examen_tema_2$CLASS.coverage" NAME="CLASS Coverage Results" MODIFIED="1730231723271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/examen_tema_2$wii.coverage" NAME="wii Coverage Results" MODIFIED="1730335209383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/examen_tema_2$CLASS.coverage" NAME="CLASS Coverage Results" MODIFIED="1730335113180" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/examen_tema_2$Classprincipal.coverage" NAME="Classprincipal Coverage Results" MODIFIED="1729981803869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
